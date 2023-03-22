@@ -1,6 +1,6 @@
 import React from "react";
-import {NavLink, Link} from "react-router-dom";
-import {BsSearch, BsFillHouseFill, BsHeart, BsFillPersonFill, BsCart, BsChatSquare} from "react-icons/bs";
+import { NavLink, } from "react-router-dom";
+import { BsInfoCircle, BsSearch, BsHouse, BsHeart, BsPerson, BsCart, BsChatSquare } from "react-icons/bs";
 
 const Header = () => {
     return (
@@ -22,10 +22,11 @@ const Header = () => {
                         <div className="col-3">
                             <div className="menu-links">
                                 <div className="d-flex gap-30"> 
-                                    <NavLink className="black-link" to="/"> <BsFillHouseFill className="icon" /> </NavLink>
+                                    <NavLink className="black-link" to="/"> <BsHouse className="icon" /> </NavLink>
                                     <NavLink className="black-link" to="/Contact"> <BsChatSquare className="icon" /> </NavLink>
+                                    <NavLink className="black-link" to="/Terms"> <BsInfoCircle className="icon"/> </NavLink>
                                     <NavLink className="black-link" to="/Wishlist"> <BsHeart className="icon"/> </NavLink>
-                                    <NavLink className="black-link" to="/Account"> <BsFillPersonFill className="icon"/> </NavLink>
+                                    <NavLink className="black-link" to="/Account"> <BsPerson className="icon"/> </NavLink>
                                     <NavLink className="black-link" to="/Cart"> <BsCart className="icon"/> </NavLink>
                                 </div> 
                             </div>    

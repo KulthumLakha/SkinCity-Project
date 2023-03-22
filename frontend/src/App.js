@@ -7,6 +7,7 @@ import Contact from "./pages/Contact";
 import Account from "./pages/Account";
 import Wishlist from "./pages/Wishlist";
 import Cart from "./pages/Cart";
+import Terms from "./pages/Terms";
 
 
 function App() 
@@ -20,6 +21,7 @@ function App()
           <Route path="wishlist" element={<Wishlist />} />
           <Route path="account" element={<Account />} />
           <Route path="cart" element={<Cart />} />
+          <Route path="terms" element={<Terms />} />
         </Route>
       </Routes>
     </BrowserRouter>

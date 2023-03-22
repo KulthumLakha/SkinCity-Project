@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import { HashLink as Link } from 'react-router-hash-link';
 import { BsInstagram, BsFacebook, BsTwitter } from "react-icons/bs";
 
 const Footer = () => {
@@ -23,18 +23,17 @@ const Footer = () => {
                         <div className="col-3">
                             <h6 className="mb-4 black-link"> PRIVACY AND TERMS </h6>
                             <div className="footer-links d-flex flex-column"> 
-                                <Link className="black-link py-2 mb-1"> Privacy Policy </Link>
-                                <Link className="black-link py-2 mb-1"> Returns $ Exchanges  </Link>
-                                <Link className="black-link py-2 mb-1"> Shipping Policy </Link>
-                                <Link className="black-link py-2 mb-1"> Terms & Conditions </Link>
+                                <Link className="black-link py-2 mb-1" to="Terms"> Privacy Policy </Link>
+                                <Link className="black-link py-2 mb-1" to="Terms"> Returns $ Exchanges  </Link>
+                                <Link className="black-link py-2 mb-1" to="Terms"> Shipping Policy </Link>
+                                <Link className="black-link py-2 mb-1" to="Terms"> Terms & Conditions </Link>
                             </div>
                         </div>
                         <div className="col-3">
                             <h6 className="mb-4 black-link"> CUSTOMER SERVICE </h6>
                             <div className="footer-links d-flex flex-column"> 
-                                <Link className="black-link py-2 mb-1"> About Us </Link>
-                                <Link className="black-link py-2 mb-1"> FAQs </Link>
-                                <Link className="black-link py-2 mb-1"> Contact </Link>
+                                <Link className="black-link py-2 mb-1" to="Contact"> FAQs </Link>
+                                <Link className="black-link py-2 mb-1" to="Contact"> Contact </Link>
                             </div>
                         </div>
                         <div className="col-3">

@@ -61,7 +61,17 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-            <section className="home-wrapper-2 py-5">
+            <section className="abt home-wrapper-2 py-5">
+                <div>
+                    <h2 className="h2 mb-4"> ABOUT US </h2>
+                    <p>Welcome to SkinCity, your one-stop shop for all things skincare and beauty. Our mission is to provide high-quality skincare and beauty products that enhance your natural beauty and help you feel confident in your skin.</p>
+                    <p>At SkinCity, we understand that every individual's skin is unique, and therefore we offer a diverse range of products to cater to different skin types and concerns. Whether you're looking for anti-aging products, acne solutions, or simply want to pamper yourself with a luxurious skincare routine, we have something for everyone.</p>
+                    <p>We are committed to using only the best ingredients in our products, and we work closely with top skincare experts and manufacturers to ensure that our products meet the highest quality standards. We also believe in being transparent about our ingredients and formulations, so you can feel confident in what you're putting on your skin.</p>
+                    <p>Our team at SkinCity is passionate about skincare and beauty, and we strive to provide exceptional customer service to ensure that your shopping experience is enjoyable and hassle-free. We are dedicated to helping our customers achieve their skincare goals and providing expert advice and recommendations for their unique needs.</p>
+                    <p>Thank you for choosing SkinCity as your skincare and beauty destination. We look forward to helping you feel confident and beautiful in your skin.</p>
+                </div>
+            </section>
+            <section className="home-wrapper-3 py-5">
                 <div className="container.xxl">
                     <div className="row">
                         <div className="col-12">
@@ -106,8 +116,8 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-            <section className="home-wrapper-3 py-5">
-                /* This section can use swiper for featured products */
+            <section className="home-wrapper-4 py-5">
+                <p>Coming soon!</p>
             </section>
         </>
     );

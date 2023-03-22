@@ -170,17 +170,26 @@ footer .input-group-text{
 }
 
 .home-wrapper-2 {
+  margin: 50pt;
+  font-size: 22px;
+  padding-left: 50pt;
+  padding-right: 50pt;
+  text-align: center;
+}
+
+.home-wrapper-3 {
   background-color: var(--color-1);
   margin: 50pt;
   padding: 50pt;
 }
 
-.home-wrapper-3 {
+.home-wrapper-4 {
   margin: 50pt;
 }
 
 
-/* CONTACT PAGE */
+
+/* CONTACT AND TERMS PAGE */
 .contact-wrapper-1 {
   margin: 50pt;
   font-size: 22px;
