@@ -24,9 +24,9 @@ const Header = () => {
                                 <div className="d-flex gap-30"> 
                                     <NavLink className="black-link" to="/"> <BsFillHouseFill className="icon" /> </NavLink>
                                     <NavLink className="black-link" to="/Contact"> <BsChatSquare className="icon" /> </NavLink>
-                                    <Link className="black-link"> <BsHeart className="icon"/> </Link>
-                                    <Link className="black-link"> <BsFillPersonFill className="icon"/> </Link>
-                                    <Link className="black-link"> <BsCart className="icon"/> </Link>
+                                    <NavLink className="black-link" to="/Wishlist"> <BsHeart className="icon"/> </NavLink>
+                                    <NavLink className="black-link" to="/Account"> <BsFillPersonFill className="icon"/> </NavLink>
+                                    <NavLink className="black-link" to="/Cart"> <BsCart className="icon"/> </NavLink>
                                 </div> 
                             </div>    
                         </div>

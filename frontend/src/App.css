@@ -55,6 +55,12 @@ a{
   color: #131921;
 }
 
+.h2{
+  color: #FFC0CB;
+  text-transform: uppercase;
+}
+
+
 /* HEADER */
 .header-top-strip{
   background-color: var(--color-1);
@@ -172,3 +178,22 @@ footer .input-group-text{
 .home-wrapper-3 {
   margin: 50pt;
 }
+
+
+/* CONTACT PAGE */
+.contact-wrapper-1 {
+  margin: 50pt;
+  font-size: 22px;
+  padding-left: 50pt;
+  padding-right: 50pt;
+}
+
+.list{
+  list-style-position: outside;
+}
+
+.ol .li{
+ text-align: left;
+ margin-left: 45%;
+}
+
