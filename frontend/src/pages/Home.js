@@ -1,59 +1,40 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const Home = () => {
     return (
         <>
-            <section className="home-wrapper-1 py-5">
+            <section className="home-wrapper-1 py-3">
                 <div className="container.xxl">
                     <div className="row">
                         <div className="col-6">
                             <div className="main-banner position-relative">
-                                <img src="images/main-banner-1.jpg" className="img-fluid rounded-3" alt="main banner"/>
-                                <div className="main-banner-content position-absolute">
-                                    <h4> SUPERCHARGED FOR PROS. </h4>
-                                    <h5> iPad S13+ Pro. </h5>
-                                    <p> $999.00 </p>
-                                    <Link className="button">  BUY NOW </Link>
-                                </div>
+                                <img src="images/mainbanner.jpg" className="img-fluid rounded-3" alt="main banner"/>
                             </div>
                         </div>
                         <div className="col-6">
                             <div className="d-flex flex-wrap gap-10 justify-content-between align-items-center">
                                 <div className="small-banner position-relative">
-                                    <img src="images/catbanner-03.jpg" className="img-fluid rounded-3" alt="main banner"/>  
+                                    <img src="images/argan.jpg" className="img-fluid rounded-3" alt="main banner"/>  
                                     <div className="small-banner-content position-absolute">                
-                                        <h4> SUPERCHARGED FOR PROS. </h4>
-                                        <h5> iPad S13+ Pro. </h5>
-                                        <p> $999.00 </p>
-                                        <Link className="button">  BUY NOW </Link>
+                                        <h4> ARGAN <br /> &nbsp; OIL </h4>
                                     </div>
                                 </div>
                                 <div className="small-banner position-relative">
-                                    <img src="images/catbanner-01.jpg" className="img-fluid rounded-3" alt="main banner"/>  
+                                    <img src="images/teatree.jpg" className="img-fluid rounded-3" alt="main banner"/>  
                                     <div className="small-banner-content position-absolute">                
-                                        <h4> SUPERCHARGED FOR PROS. </h4>
-                                        <h5> iPad S13+ Pro. </h5>
-                                        <p> $999.00 </p>
-                                        <Link className="button">  BUY NOW </Link>
+                                        <h4> TEA TREE SERUM </h4>
                                     </div>
                                 </div>
                                 <div className="small-banner position-relative">
-                                    <img src="images/catbanner-01.jpg" className="img-fluid rounded-3" alt="main banner"/>  
+                                    <img src="images/vitCserum.jpg" className="img-fluid rounded-3" alt="main banner"/>  
                                     <div className="small-banner-content position-absolute">                
-                                        <h4> SUPERCHARGED FOR PROS. </h4>
-                                        <h5> iPad S13+ Pro. </h5>
-                                        <p> $999.00 </p>
-                                        <Link className="button">  BUY NOW </Link>
+                                        <h4> VITAMIN C <br /> &nbsp; SERUM </h4>
                                     </div>
                                 </div>
                                 <div className="small-banner position-relative">
-                                    <img src="images/catbanner-01.jpg" className="img-fluid rounded-3" alt="main banner"/>  
+                                    <img src="images/salycilic.jpg" className="img-fluid rounded-3" alt="main banner"/>  
                                     <div className="small-banner-content position-absolute">                
-                                        <h4> SUPERCHARGED FOR PROS. </h4>
-                                        <h5> iPad S13+ Pro. </h5>
-                                        <p> $999.00 </p>
-                                        <Link className="button">  BUY NOW </Link>
+                                        <h4> &nbsp;&nbsp;&nbsp; SALICYLIC ACID <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2% MASQUE </h4>
                                     </div>
                                 </div>
                             </div>
@@ -61,9 +42,9 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-            <section className="abt home-wrapper-2 py-5">
+            <section className="abt home-wrapper-2 py-3">
                 <div>
-                    <h2 className="h2 mb-4"> ABOUT US </h2>
+                    <h1 className="h1 mb-4"> ABOUT US </h1>
                     <p>Welcome to SkinCity, your one-stop shop for all things skincare and beauty. Our mission is to provide high-quality skincare and beauty products that enhance your natural beauty and help you feel confident in your skin.</p>
                     <p>At SkinCity, we understand that every individual's skin is unique, and therefore we offer a diverse range of products to cater to different skin types and concerns. Whether you're looking for anti-aging products, acne solutions, or simply want to pamper yourself with a luxurious skincare routine, we have something for everyone.</p>
                     <p>We are committed to using only the best ingredients in our products, and we work closely with top skincare experts and manufacturers to ensure that our products meet the highest quality standards. We also believe in being transparent about our ingredients and formulations, so you can feel confident in what you're putting on your skin.</p>
@@ -116,7 +97,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-            <section className="home-wrapper-4 py-5">
+            <section className="home-wrapper-4 py-3">
                 <p>Coming soon!</p>
             </section>
         </>
