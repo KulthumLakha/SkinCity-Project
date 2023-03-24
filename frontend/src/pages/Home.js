@@ -1,24 +1,40 @@
-import React from "react";
-import productsData from './data.json'
+import React from 'react';
+import productsData from './data.json';
 
-  
-const Home = () => {
+function Home(props) {
+    const { setCartItems } = props;
+
+    function handleAddToCartClick(product) {
+        setCartItems((prevCartItems) => [...prevCartItems, product]);
+    }
+
     return (
         <>
-            <section className="home-wrapper-4 py-3">                   
-                <div className="product-list-container">
+            <section className="home-wrapper-4 py-3">
+            <div className="product-list-container">
                 <div className="product-list">
-                    {productsData.map((product) => (
+                {productsData.map((product) => (
                     <div className="product-container" key={product.id}>
-                        <img className="product-image" src={product.image} alt={product.name} />
-                        <h2 className="product-title">{product.name}</h2>
-                        <p className="product-description">{product.description}</p>
-                        <span className="product-description">${product.price}</span>
-                        <button className="add-to-cart-button">Add to Cart</button>
+                    <img
+                        className="product-image"
+                        src={product.image}
+                        alt={product.name}
+                    />
+                    <h2 className="product-title">{product.name}</h2>
+                    <p className="product-description">{product.description}</p>
+                    <span className="product-description">
+                        ${product.price.toFixed(2)}
+                    </span>
+                    <button
+                        className="add-to-cart-button"
+                        onClick={() => handleAddToCartClick(product)}
+                    >
+                        Add to Cart
+                    </button>
                     </div>
-                    ))}
+                ))}
                 </div>
-                </div>
+            </div>
             </section>
             <section className="home-wrapper-3 py-5">
                 <div className="container.xxl">
