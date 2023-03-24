@@ -211,3 +211,64 @@ footer .input-group-text{
  text-align: left;
  margin-left: 45%;
 }
+
+
+
+/* CART PAGE */
+.contact-wrapper-1 .product-list-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 50pt;
+}
+
+.contact-wrapper-1 .product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 1200px;
+}
+
+.contact-wrapper-1 .product-container {
+  flex-basis: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #FFC0CB;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact-wrapper-1 .product-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.contact-wrapper-1 .product-title {
+  font-size: 18px;
+  margin: 0;
+  text-align: center;
+}
+
+.contact-wrapper-1 .product-description {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.contact-wrapper-1 .remove-from-cart-button {
+  font-size: 16px;
+  background-color: #FFC0CB;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-wrapper-1 .remove-from-cart-button:hover {
+  background-color: #FFC0CB;
+}
