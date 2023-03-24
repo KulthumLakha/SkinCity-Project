@@ -24,7 +24,7 @@ const Footer = () => {
                             <h6 className="mb-4 black-link"> PRIVACY AND TERMS </h6>
                             <div className="footer-links d-flex flex-column"> 
                                 <Link className="black-link py-2 mb-1" to="Terms"> Privacy Policy </Link>
-                                <Link className="black-link py-2 mb-1" to="Terms"> Returns $ Exchanges  </Link>
+                                <Link className="black-link py-2 mb-1" to="Terms"> Returns & Exchanges  </Link>
                                 <Link className="black-link py-2 mb-1" to="Terms"> Shipping Policy </Link>
                                 <Link className="black-link py-2 mb-1" to="Terms"> Terms & Conditions </Link>
                             </div>

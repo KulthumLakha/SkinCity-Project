@@ -1,7 +1,11 @@
-import React from "react";
 
-const Cart = () => {
-    return (<div>Cart</div>);
-};
+import Product from './data.json'
+
+const Cart = ({ cartItems, removeItem }) => {
+
+    return ( <>Hi</>
+    );
+
+  };
 
 export default Cart;

@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink, } from "react-router-dom";
-import { BsInfoCircle, BsSearch, BsHouse, BsHeart, BsPerson, BsCart, BsChatSquare } from "react-icons/bs";
+import { BsInfoCircle, BsSearch, BsHouse, BsPerson, BsCart, BsChatSquare } from "react-icons/bs";
 
 const Header = () => {
     return (
@@ -25,7 +25,6 @@ const Header = () => {
                                     <NavLink className="black-link" to="/"> <BsHouse className="icon" /> </NavLink>
                                     <NavLink className="black-link" to="/Contact"> <BsChatSquare className="icon" /> </NavLink>
                                     <NavLink className="black-link" to="/Terms"> <BsInfoCircle className="icon"/> </NavLink>
-                                    <NavLink className="black-link" to="/Wishlist"> <BsHeart className="icon"/> </NavLink>
                                     <NavLink className="black-link" to="/Account"> <BsPerson className="icon"/> </NavLink>
                                     <NavLink className="black-link" to="/Cart"> <BsCart className="icon"/> </NavLink>
                                 </div> 
