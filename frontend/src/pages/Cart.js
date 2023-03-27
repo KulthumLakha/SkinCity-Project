@@ -3,7 +3,13 @@ import { BsExclamationCircle } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 function Cart(props) {
-  const { cartItems } = props;
+ const { cartItems } = props;
+ const { setCartItems } = props;
+
+  function removeFromCart(itemId) {
+    setCartItems(prevItems => prevItems.filter(item => item.id !== itemId));
+  }
+  
 
   return (
     <div>
@@ -31,7 +37,7 @@ function Cart(props) {
                                 <span className="product-description">
                                     ${item.price.toFixed(2)}
                                 </span>
-                                <button className="remove-from-cart-button">
+                                <button className="remove-from-cart-button" onClick={() => removeFromCart(item.id)}>
                                    Remove from Cart
                                 </button>
                             </li>
