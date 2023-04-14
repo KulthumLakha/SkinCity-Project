@@ -12,6 +12,7 @@ import productsRoutes from "./routes/productsRoutes.js";
 import User from "./models/userModel.js";
 import usersData from "./usersData.js";
 import usersRoutes from "./routes/usersRoutes.js";
+import ordersRoutes from "./routes/ordersRoutes.js";
 
 const CLIENT_URL = "http://127.0.0.1:3000";
 
@@ -22,6 +23,7 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 app.use("/products", productsRoutes);
 app.use("/users", usersRoutes);
+app.use("/orders", ordersRoutes);
 
 mongoose
   // .connect(
