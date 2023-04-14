@@ -7,7 +7,7 @@ const isAuth = async (req, res, next) => {
       if (err) {
         res.status(401).json({ message: "Invalid Token" });
       } else {
-        console.log(decoded);
+        console.log(decoded); // decoded consists of userID, iat, exp
         req.user = decoded;
         next();
       }
