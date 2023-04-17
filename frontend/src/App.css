@@ -272,3 +272,18 @@ footer .input-group-text{
 .contact-wrapper-1 .remove-from-cart-button:hover {
   background-color: #FFC0CB;
 }
+
+.contact-wrapper-1 .checkout-button {
+  font-size: 16px;
+  background-color: #FFC0CB;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-wrapper-1 .checkout-button:hover {
+  background-color: #FFC0CB;
+}
