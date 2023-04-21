@@ -46,6 +46,9 @@ function Cart(props) {
                 </div>
             )}
         </section>
+        <section className="contact-wrapper-1 py-1">
+            <button className="checkout-button"> Checkout </button>
+        </section>
     </div>
   );
 }
