@@ -1,0 +1,24 @@
+{
+  "orderItems": [
+    {
+      "slug": "copper-peptides",
+      "name": "Copper Peptides 1%",
+      "quantity": 2,
+      "price": 30.99,
+      "productID": "642a790e46938cf94f4e74b1"
+    }
+  ],
+  "shippingAddress": {
+    "fullName": "Bianca",
+    "address": "123 W Ln",
+    "city": "Dallas",
+    "state": "Texas",
+    "postalCode": 76201,
+    "country": "United States"
+  },
+  "paymentMethod": "Stripe",
+  "itemsPrice": 61.98,
+  "shippingPrice": 4.99,
+  "taxPrice": 3.99,
+  "totalPrice": 70.96
+}
