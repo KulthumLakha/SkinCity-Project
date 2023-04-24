@@ -287,3 +287,8 @@ footer .input-group-text{
 .contact-wrapper-1 .checkout-button:hover {
   background-color: #FFC0CB;
 }
+
+/* SIGN-IN PAGE */
+.small-container {
+  max-width: 600px;
+}
