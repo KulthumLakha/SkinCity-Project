@@ -13,6 +13,7 @@ import User from "./models/userModel.js";
 import usersData from "./usersData.js";
 import usersRoutes from "./routes/usersRoutes.js";
 import ordersRoutes from "./routes/ordersRoutes.js";
+import seedRoutes from "./routes/seedRoutes.js";
 
 const CLIENT_URL = "http://127.0.0.1:3000";
 
@@ -21,9 +22,10 @@ const app = express();
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
-app.use("/products", productsRoutes);
-app.use("/users", usersRoutes);
-app.use("/orders", ordersRoutes);
+app.use("/api/seed", seedRoutes);
+app.use("/api/products", productsRoutes);
+app.use("/api/users", usersRoutes);
+app.use("/api/orders", ordersRoutes);
 
 mongoose
   // .connect(
