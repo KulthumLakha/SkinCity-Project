@@ -60,6 +60,8 @@ const login = async (req, res) => {
   // Check if user exists.
   const user = await User.findOne({ email });
   if (user && bcrypt.compareSync(password, user.password)) {
+    // Call SendMail(user.email) function
+    // Comment out the following
     res.json({
       _id: user.id,
       name: user.name,
@@ -80,6 +82,16 @@ const getProfile = async (req, res) => {
   res.json({ user: req.user, message: "User information" });
 };
 
+// Verify user
+const verify = async (req, res) => {
+  // Move from app.js
+  // Generate token
+  res.json({
+    message: "Email verified successfully",
+    token: generateToken(user._id),
+  });
+};
+
 // Generate JWT
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -87,4 +99,6 @@ const generateToken = (id) => {
   });
 };
 
-export { register, login, getProfile };
+const sendMail = async (email) => {};
+
+export { register, login, getProfile, verify };
