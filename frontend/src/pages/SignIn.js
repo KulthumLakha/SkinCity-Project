@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet-async';
 
 
 
-export default function SignInPage() {
+export default function SignIn() {
         const { search } = useLocation();
         const redirectInURL = new URLSearchParams(search).get('redirect');
         const redirect = redirectInURL ? redirectInURL : '/';
