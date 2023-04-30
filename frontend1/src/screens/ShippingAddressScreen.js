@@ -10,8 +10,7 @@ export default function ShippingAddressScreen() {
   const navigate = useNavigate();
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const {
-    //add userInfo when signin and signup pages are implemented
-    //userInfo,
+    userInfo,
     cart: { shippingAddress },
   } = state;
   const [fullName, setFullName] = useState(shippingAddress.fullName || '');
@@ -20,12 +19,11 @@ export default function ShippingAddressScreen() {
   const [postalCode, setPostalCode] = useState(
     shippingAddress.postalCode || ''
   );
-  //uncomment this part after getting user info
-  //   useEffect(() => {
-  //     if (!userInfo) {
-  //       navigate('/signin?redirect=/shipping');
-  //     }
-  //   }, [userInfo, navigate]);
+  useEffect(() => {
+    if (!userInfo) {
+      navigate('/login?redirect=/shipping');
+    }
+  }, [userInfo, navigate]);
   const [country, setCountry] = useState(shippingAddress.country || '');
   const submitHandler = (e) => {
     e.preventDefault();
@@ -56,9 +54,7 @@ export default function ShippingAddressScreen() {
       <Helmet>
         <title>Shipping Address</title>
       </Helmet>
-
-      {/* <CheckoutSteps step1 step2></CheckoutSteps>uncomment later */}
-      <CheckoutSteps step1></CheckoutSteps>
+      <CheckoutSteps step1 step2></CheckoutSteps>uncomment later
       <div className="container small-container">
         <h1 className="my-3">Shipping Address</h1>
         <Form onSubmit={submitHandler}>
