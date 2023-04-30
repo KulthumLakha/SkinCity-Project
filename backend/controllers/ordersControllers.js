@@ -88,10 +88,12 @@ const placeOrder = async (req, res) => {
       calcShipping = calcItemsPrice > 100 ? roundNum(0) : roundNum(10);
 
       // Validate total price
-      calcTotalPrice = calcItemsPrice + calcTax + calcShipping; // Adding tax and shipping
+      calcTotalPrice = roundNum(calcItemsPrice + calcTax + calcShipping); // Adding tax and shipping
       if (calcTotalPrice !== totalPrice) {
         res.status(400).json({ message: "Total price invalid." });
-        return Promise.reject("Total price invalid.");
+        return Promise.reject(
+          "Total price invalid. " + calcTotalPrice + " vs " + totalPrice
+        );
       }
       return;
     })
