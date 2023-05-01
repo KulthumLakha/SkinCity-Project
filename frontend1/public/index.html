@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
+  <script src="https://www.google.com/recaptcha/api.js?render=6LfO-88lAAAAADALGEx5DwEBu_YfNm5z9Aw3XBkW"></script>
+
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
@@ -43,5 +46,17 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+    <script>
+      function onClick(e) {
+        e.preventDefault();
+        grecaptcha.ready(function() {
+          grecaptcha.execute('6LfO-88lAAAAADALGEx5DwEBu_YfNm5z9Aw3XBkW', {action: 'submit'}).then(function(token) {
+              document.getElementById("g-token").value = token;
+          });
+        });
+      }
+  </script>
+
   </body>
 </html>
