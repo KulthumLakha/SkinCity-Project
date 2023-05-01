@@ -20,8 +20,25 @@ export default function SigninScreen() {
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { userInfo } = state;
+
+  const isValidEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const isValidPassword = (password) => {
+    return password.length >= 8;
+  };
+
   const submitHandler = async (e) => {
     e.preventDefault();
+    if (!isValidEmail(email)) {
+      toast.error('Invalid email address');
+      return;
+    }
+    if (!isValidPassword(password)) {
+      toast.error('Password must be at least 8 characters long');
+      return;
+    }
     try {
       const { data } = await Axios.post('api/users/login', {
         email,
@@ -32,9 +49,9 @@ export default function SigninScreen() {
       navigate(redirect || '/');
     } catch (err) {
       toast.error('Invalid email or password');
-      // toast.error(getError(err));
     }
   };
+
   useEffect(() => {
     if (userInfo) {
       navigate(redirect);
