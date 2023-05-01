@@ -7,7 +7,6 @@ import { Helmet } from 'react-helmet-async';
 import { useContext, useEffect, useState } from 'react';
 import { Store } from '../Store';
 import { toast } from 'react-toastify';
-//import { getError } from '';
 
 export default function SigninScreen() {
   const navigate = useNavigate();
@@ -26,7 +25,23 @@ export default function SigninScreen() {
   };
 
   const isValidPassword = (password) => {
-    return password.length >= 8;
+    if (password.length < 8) {
+      return 'Password must be at least 8 characters long';
+    }
+  
+    if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+      return 'Password must contain at least one symbol';
+    }
+  
+    if (!/[A-Z]/.test(password)) {
+      return 'Password must contain at least one uppercase character';
+    }
+  
+    if (!/[a-z]/.test(password)) {
+      return 'Password must contain at least one lowercase character';
+    }
+  
+    return true;
   };
 
   const submitHandler = async (e) => {
@@ -35,8 +50,9 @@ export default function SigninScreen() {
       toast.error('Invalid email address');
       return;
     }
-    if (!isValidPassword(password)) {
-      toast.error('Password must be at least 8 characters long');
+    const passwordError = isValidPassword(password);
+    if (passwordError !== true) {
+      toast.error(passwordError);
       return;
     }
     try {
