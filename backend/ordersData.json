@@ -16,7 +16,7 @@
     "postalCode": 76201,
     "country": "United States"
   },
-  "paymentMethod": "Stripe",
+  "paymentMethod": "Paypal",
   "itemsPrice": 61.98,
   "shippingPrice": 4.99,
   "taxPrice": 3.99,

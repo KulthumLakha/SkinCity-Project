@@ -1,6 +1,6 @@
 import express from 'express';
 import {
-  register,
+  signup,
   login,
   getProfile,
   verify,
@@ -9,7 +9,7 @@ import { isAuth } from '../utils.js';
 
 const router = express.Router();
 
-router.post('/', register);
+router.post('/', signup);
 router.post('/login', login);
 router.get('/profile', isAuth, getProfile); // TO-DO: Implement authentication/protection function; may be replaced with /:id
 router.get('/verify/:token', verify);

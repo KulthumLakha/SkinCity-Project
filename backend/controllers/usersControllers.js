@@ -1,27 +1,27 @@
-import jwt from "jsonwebtoken";
-import User from "../models/userModel.js";
-import mongoose from "mongoose";
-import bcrypt from "bcrypt";
+import jwt from 'jsonwebtoken';
+import User from '../models/userModel.js';
+import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
 
 // For the handlers of our routes
 // Sign-up or register
 // Public
-const register = async (req, res) => {
+const signup = async (req, res) => {
   // Check name, email, and password are not empty.
   const { name, email, password } = req.body;
 
   // Sanitize name, email, and password.
   if (!name || !email || !password) {
-    res.status(400).json({ message: "Please fill all fields." });
-    throw new Error("Please fill all fields.");
+    res.status(400).json({ message: 'Please fill all fields.' });
+    throw new Error('Please fill all fields.');
   }
 
   // Check if email has already been registered.
   const userExists = await User.findOne({ email });
 
   if (userExists) {
-    res.status(400).json({ message: "User already exists." });
-    throw new Error("User already exists.");
+    res.status(400).json({ message: 'User already exists.' });
+    throw new Error('User already exists.');
   }
 
   // Hash password
@@ -38,8 +38,8 @@ const register = async (req, res) => {
       token: generateToken(user._id),
     });
   } else {
-    res.status(400).json({ message: "Invalid user data" });
-    throw new Error("Invalid user data");
+    res.status(400).json({ message: 'Invalid user data' });
+    throw new Error('Invalid user data');
   }
 
   //   res.json({ message: "New user registered" });
@@ -53,8 +53,8 @@ const login = async (req, res) => {
 
   // Sanitize email and password.
   if (!email || !password) {
-    res.status(400).json({ message: "Please fill all fields." });
-    throw new Error("Please fill all fields.");
+    res.status(400).json({ message: 'Please fill all fields.' });
+    throw new Error('Please fill all fields.');
   }
 
   // Check if user exists.
@@ -69,8 +69,8 @@ const login = async (req, res) => {
       token: generateToken(user._id),
     });
   } else {
-    res.status(400).json({ message: "Invalid credentials." });
-    throw new Error("Invalid credentials.");
+    res.status(400).json({ message: 'Invalid credentials.' });
+    throw new Error('Invalid credentials.');
   }
 
   //   res.json({ message: "User logged in" });
@@ -79,7 +79,7 @@ const login = async (req, res) => {
 // Retrieve user information and order history
 // Private
 const getProfile = async (req, res) => {
-  res.json({ user: req.user, message: "User information" });
+  res.json({ user: req.user, message: 'User information' });
 };
 
 // Verify user
@@ -87,7 +87,7 @@ const verify = async (req, res) => {
   // Move from app.js
   // Generate token
   res.json({
-    message: "Email verified successfully",
+    message: 'Email verified successfully',
     token: generateToken(user._id),
   });
 };
@@ -95,10 +95,10 @@ const verify = async (req, res) => {
 // Generate JWT
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
-    expiresIn: "30d",
+    expiresIn: '30d',
   });
 };
 
 const sendMail = async (email) => {};
 
-export { register, login, getProfile, verify };
+export { signup, login, getProfile, verify };
