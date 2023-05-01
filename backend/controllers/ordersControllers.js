@@ -6,8 +6,11 @@ import mongoose from "mongoose";
 const placeOrder = async (req, res) => {
   let calcItemsPrice = 0;
   let calcTotalPrice = 0;
-  let product;
-  const {
+  let calcTax = 0;
+  let calcShipping = 0;
+  let productObj;
+  const roundNum = (num) => Math.round(num * 100 + Number.EPSILON) / 100; // 123.2345 => 123.23
+  let {
     orderItems,
     shippingAddress,
     paymentMethod,
@@ -16,7 +19,7 @@ const placeOrder = async (req, res) => {
     taxPrice,
     totalPrice,
   } = req.body;
-  const userID = req.user.id;
+  const user = req.user.id;
 
   if (
     !orderItems ||
@@ -39,8 +42,8 @@ const placeOrder = async (req, res) => {
   }
 
   // Validate user exists
-  const user = await User.findById(userID);
-  if (!user) {
+  const userObj = await User.findById(user);
+  if (!userObj) {
     res.status(400).json({ message: "User not found." });
     console.log("ERROR: User not found.");
     return;
@@ -48,26 +51,26 @@ const placeOrder = async (req, res) => {
 
   await new Promise((resolve, reject) => {
     orderItems.forEach(async (orderItem, index, array) => {
-      product = await Product.findById(orderItem.productID);
+      productObj = await Product.findById(orderItem._id);
       // Validate product exists
-      if (!product) {
+      if (!productObj) {
         res.status(400).json({ message: "Product not found." });
-        reject("Product not found.");
+        reject("Product not found." + orderItem._id);
       }
 
       // Validate quantity satisfies
-      if (product && orderItem.quantity > product.inStockQuantity) {
+      if (productObj && orderItem.quantity > productObj.inStockQuantity) {
         res.status(400).json({ message: "Out of stock." });
         reject("Out of stock.");
       }
 
       // Calculate items price based on the price in the database instead of the price passed from client
-      if (product) {
-        calcItemsPrice += orderItem.quantity * product.price;
+      if (productObj) {
+        calcItemsPrice += orderItem.quantity * productObj.price;
       }
 
       if (index === array.length - 1) {
-        resolve(calcItemsPrice);
+        resolve(roundNum(calcItemsPrice));
       }
     });
   })
@@ -77,16 +80,26 @@ const placeOrder = async (req, res) => {
         res.status(400).json({ message: "Items price invalid." });
         return Promise.reject("Items price invalid.");
       }
-      calcTotalPrice = calcItemsPrice + 3.99 + 4.99; // Adding tax and shipping
+
+      // Calculate tax
+      calcTax = roundNum(0.0825 * calcItemsPrice);
+
+      // Calculate shipping
+      calcShipping = calcItemsPrice > 100 ? roundNum(0) : roundNum(10);
+
       // Validate total price
+      calcTotalPrice = roundNum(calcItemsPrice + calcTax + calcShipping); // Adding tax and shipping
       if (calcTotalPrice !== totalPrice) {
         res.status(400).json({ message: "Total price invalid." });
-        return Promise.reject("Total price invalid.");
+        return Promise.reject(
+          "Total price invalid. " + calcTotalPrice + " vs " + totalPrice
+        );
       }
       return;
     })
     .then(async () => {
       // Add order to the database
+      orderItems = orderItems.map((x) => ({ ...x, product: x._id }));
       const newOrder = new Order({
         orderItems,
         shippingAddress,
@@ -95,20 +108,30 @@ const placeOrder = async (req, res) => {
         shippingPrice,
         taxPrice,
         totalPrice,
-        userID,
+        user,
       });
       const order = await newOrder.save();
       console.log(orderItems);
-      res.json({ message: "Order received." });
+      res.json({ message: "Order received.", order });
     })
     .catch((e) => {
       // Catching error
       console.log("ERROR: " + e);
     });
+  // console.log(req.body);
+};
+
+const getOrder = async (req, res) => {
+  const order = await Order.findById(req.params.id);
+  if (order) {
+    res.send(order);
+  } else {
+    res.status(404).send({ message: "Order Not Found" });
+  }
 };
 
 // TO-DO:
 // payOrder()
 // getOrderHistory()
 
-export { placeOrder };
+export { placeOrder, getOrder };
