@@ -1,5 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
+  
+  <script src="https://www.google.com/recaptcha/api.js?render=6LfO-88lAAAAADALGEx5DwEBu_YfNm5z9Aw3XBkW"></script>
+  
+  <?php
+    if(isset($_POST) && isset($_POST["btnSubmit"]))
+    {
+        $secretKey = '6LfO-88lAAAAAEmL7c8uPGVk7RfV67onQcCojMal';
+        $token = $_POST["g-token"];
+        $ip = $_SERVER['REMOTE_ADDR'];
+        
+        $url = "https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$token."&remoteip=".$ip;
+        $request = file_get_contents($url);
+        $response = json_decode($request);
+
+        if($response->success)
+        {
+          echo '<h1>Validation Success!</h1>';
+        }
+        else
+        {
+          echo '<h1>Validation Failed.</h1>';
+        }
+    }
+  ?>
+
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
@@ -31,6 +57,7 @@
     <title>React App</title>
   </head>
   <body>
+    <input type="hidden" id="g-token" name="g-token" />
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
@@ -43,5 +70,16 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+      function onClick(e) {
+        e.preventDefault();
+        grecaptcha.ready(function() {
+          grecaptcha.execute('6LfO-88lAAAAADALGEx5DwEBu_YfNm5z9Aw3XBkW', {action: 'submit'}).then(function(token) {
+              document.getElementById("g-token").value = token;
+          });
+        });
+      }
+  </script>
+
   </body>
 </html>
