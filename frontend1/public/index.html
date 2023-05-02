@@ -34,6 +34,7 @@
     <title>React App</title>
   </head>
   <body>
+    <input type="hidden" id="g-token" name="g-token" />
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
@@ -51,12 +52,14 @@
       function onClick(e) {
         e.preventDefault();
         grecaptcha.ready(function() {
-          grecaptcha.execute('6LfO-88lAAAAADALGEx5DwEBu_YfNm5z9Aw3XBkW', {action: 'submit'}).then(function(token) {
-              document.getElementById("g-token").value = token;
-          });
+          grecaptcha
+            .execute('6LfO-88lAAAAADALGEx5DwEBu_YfNm5z9Aw3XBkW', {
+              action: 'submit'})
+            .then(function(token) {
+              document.getElementById("g-token").value = token
         });
       }
-  </script>
+    </script>
 
   </body>
 </html>
