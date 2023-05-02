@@ -18,6 +18,7 @@ import PaymentMethodScreen from './screens/PaymentMethodScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import SignupScreen from './screens/SignupScreen';
 import OrderScreen from './screens/OrderScreen';
+import EmailScreen from './screens/EmailScreen';
 import Cookies from 'js-cookie';
 
 function App() {
@@ -87,7 +88,8 @@ function App() {
               <Route path="/login" element={<SigninScreen />} />
               <Route path="/signup" element={<SignupScreen />} />
               <Route path="/placeorder" element={<PlaceOrderScreen />} />
-              <Route path="/order/:id" element={<OrderScreen />}></Route>
+              <Route path="/order/:id" element={<OrderScreen />}/>
+              <Route path="/email" element={<EmailScreen />}></Route>
               <Route
                 path="/shipping"
                 element={<ShippingAddressScreen />}
