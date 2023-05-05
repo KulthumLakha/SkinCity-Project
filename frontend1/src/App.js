@@ -18,16 +18,21 @@ import PaymentMethodScreen from './screens/PaymentMethodScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import SignupScreen from './screens/SignupScreen';
 import OrderScreen from './screens/OrderScreen';
+import EmailScreen from './screens/EmailScreen';
+import Cookies from 'js-cookie';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart, userInfo } = state;
-
+  const accessToken = Cookies.get('access_token');
   const signoutHandler = () => {
     ctxDispatch({ type: 'USER_SIGNOUT' });
     localStorage.removeItem('userInfo');
     localStorage.removeItem('shippingAddress');
     localStorage.removeItem('paymentMethod');
+    if(accessToken){
+      Cookies.remove('access_token');
+    }
   };
 
   return (
@@ -49,7 +54,7 @@ function App() {
                     </Badge>
                   )}
                 </Link>
-                {userInfo ? (
+                {(userInfo && accessToken) ? (
                   <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
                     <LinkContainer to="/profile">
                       <NavDropdown.Item>User Profile</NavDropdown.Item>
@@ -83,7 +88,8 @@ function App() {
               <Route path="/login" element={<SigninScreen />} />
               <Route path="/signup" element={<SignupScreen />} />
               <Route path="/placeorder" element={<PlaceOrderScreen />} />
-              <Route path="/order/:id" element={<OrderScreen />}></Route>
+              <Route path="/order/:id" element={<OrderScreen />}/>
+              <Route path="/email" element={<EmailScreen />}></Route>
               <Route
                 path="/shipping"
                 element={<ShippingAddressScreen />}

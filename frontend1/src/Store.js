@@ -3,10 +3,6 @@ import { createContext, useReducer } from 'react';
 export const Store = createContext();
 
 const initialState = {
-  userInfo: localStorage.getItem('userInfo')
-    ? JSON.parse(localStorage.getItem('userInfo'))
-    : null,
-
   cart: {
     shippingAddress: localStorage.getItem('shippingAddress')
       ? JSON.parse(localStorage.getItem('shippingAddress'))
@@ -43,12 +39,10 @@ function reducer(state, action) {
     }
     case 'CART_CLEAR':
       return { ...state, cart: { ...state.cart, cartItems: [] } };
-    case 'USER_SIGNIN':
-      return { ...state, userInfo: action.payload };
     case 'USER_SIGNOUT':
       return {
         ...state,
-        userInfo: null,
+        //userInfo: null,
         cart: {
           cartItems: [],
           shippingAddress: {},
